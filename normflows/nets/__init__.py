@@ -12,6 +12,6 @@ from .cnn import ConvNet2d
 
 from .resnet import ResidualNet, ConvResidualNet
 
-from .lipschitz import LipschitzMLP, LipschitzCNN, InducedNormLinear, InducedNormConv2d
+from .lipschitz import LipschitzMLP, LipschitzCNN, InducedNormLinear, InducedNormConv2d, ConditionalLipschitzMLP
 
 from .made import MADE

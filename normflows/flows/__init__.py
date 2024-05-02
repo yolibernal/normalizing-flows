@@ -21,6 +21,7 @@ from .affine.autoregressive import MaskedAffineAutoregressive
 from .normalization import BatchNorm, ActNorm
 
 from .residual import Residual
+from .conditional_residual import ConditionalResidual
 
 from . import neural_spline
 from .neural_spline import (

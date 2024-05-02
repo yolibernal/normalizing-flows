@@ -1,12 +1,11 @@
-import math
-import torch
-
-from torch import nn
-import torch.nn.init as init
-import torch.nn.functional as F
 import collections.abc as container_abcs
+import math
 from itertools import repeat
 
+import torch
+import torch.nn.functional as F
+import torch.nn.init as init
+from torch import nn
 
 # Code taken from https://github.com/rtqichen/residual-flows
 
@@ -65,6 +64,13 @@ class LipschitzMLP(nn.Module):
 
     def forward(self, x):
         return self.net(x)
+
+
+class ConditionalLipschitzMLP(LipschitzMLP):
+    def forward(self, x, context):
+        assert context is not None
+        x = torch.cat([x, context], dim=-1)
+        return super().forward(x)
 
 
 class LipschitzCNN(nn.Module):
